@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
-  output: "export",
+  // output: "export",
   basePath: "/my-portfolio",
 };
 

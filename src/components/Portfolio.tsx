@@ -132,7 +132,7 @@ export default function Portfolio() {
                     rel="noopener noreferrer"
                     className="group relative block max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl cursor-pointer"
                   >
-                    <video autoPlay loop muted playsInline className="w-full">
+                    <video autoPlay loop muted playsInline preload="metadata" className="w-full">
                       <source src="/videos/video1.mp4" type="video/mp4" />
                     </video>
                     
@@ -154,7 +154,7 @@ export default function Portfolio() {
                     A logistics service platform that allows users to fill out shipment details, upload goods for weighing, and choose delivery either to their home address or a designated logistics drop-off point. Built to simplify and track the shipping process from start to finish.
                   </p>
                   <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl">
-                    <video autoPlay loop muted playsInline className="w-full">
+                    <video autoPlay loop muted playsInline preload="metadata" className="w-full">
                       <source src="/videos/video2.mp4" type="video/mp4" />
                     </video>
                   </div>

@@ -6,10 +6,9 @@ const nextConfig: NextConfig = {
       "www.shutterstock.com",
       "thumbs.dreamstime.com",
     ],
-    unoptimized: true,
+  
   },
-  // output: "export",
-  basePath: "/my-portfolio",
+ 
 };
 
 export default nextConfig;

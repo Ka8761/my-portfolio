@@ -68,7 +68,7 @@ export default function About() {
           className="flex flex-col sm:flex-row gap-6 justify-center mt-12"
         >
           <a
-            href="/files/Dikachi_Nwankwo_cv.pdf" 
+            href="/files/Onyedikachi_Nwankwo_CV.pdf" 
             download
             className="group flex items-center justify-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-purple-500/60 hover:scale-105 transition-all duration-300"
           >

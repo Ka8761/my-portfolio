@@ -36,30 +36,9 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, currentRoleIndex, delta]);
 
-  const handleHireMeClick = () => {
   const email = 'dikachinwankwo575@gmail.com';
   const subject = 'Hire Me - Project Discussion';
-  const body = 'Hello Dikachi,%0D%0A%0D%0AI\'d like to discuss a project with you.%0D%0A%0D%0ABest regards';
-  
-  // Method 1: Programmatic link click (most reliable)
-  const mailtoLink = document.createElement('a');
-  mailtoLink.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  mailtoLink.style.display = 'none';
-  document.body.appendChild(mailtoLink);
-  mailtoLink.click();
-  document.body.removeChild(mailtoLink);
-  
-  // Method 2: Direct window.location (backup)
-  setTimeout(() => {
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }, 100);
-  
-  // Method 3: window.open (final backup)
-  setTimeout(() => {
-    window.open(`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_self');
-  }, 200);
-};
-
+  const body = 'Hello Dikachi,\n\nI\'d like to discuss a project with you.\n\nBest regards';
 
   return (
     <section
@@ -133,29 +112,25 @@ export default function Hero() {
         </div>
 
         <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1.8, duration: 0.8 }}
-  className="flex justify-center gap-6 mb-8"
->
-  <a
-    href="#portfolio"
-    className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95"
-  >
-    Projects
-  </a>
-  
-  <div 
-    role="button" 
-    tabIndex={0}
-    onClick={handleHireMeClick}
-    onKeyDown={(e) => e.key === 'Enter' && handleHireMeClick()}
-    className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95 cursor-pointer select-none"
-  >
-    Hire Me
-  </div>
-</motion.div>
-
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.8 }}
+          className="flex justify-center gap-6 mb-8"
+        >
+          <a
+            href="#portfolio"
+            className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95"
+          >
+            Projects
+          </a>
+          
+          <a
+            href={`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
+            className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95 cursor-pointer select-none"
+          >
+            Hire Me
+          </a>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

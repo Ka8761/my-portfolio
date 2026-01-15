@@ -18,21 +18,17 @@ export default function Hero() {
     const currentRole = roles[currentRoleIndex];
 
     if (!isDeleting && displayText.length < currentRole.length) {
-      // Typing
       timer = setTimeout(() => {
         setDisplayText(currentRole.substring(0, displayText.length + 1));
         setDelta(80 - Math.random() * 40);
       }, delta);
     } else if (isDeleting && displayText.length > 0) {
-      // Deleting
       timer = setTimeout(() => {
         setDisplayText(currentRole.substring(0, displayText.length - 1));
       }, 40);
     } else if (!isDeleting && displayText === currentRole) {
-      // Pause at end, then delete
       setTimeout(() => setIsDeleting(true), 2000);
     } else if (isDeleting && displayText === "") {
-      // Switch to next role
       setIsDeleting(false);
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
     }
@@ -41,9 +37,13 @@ export default function Hero() {
   }, [displayText, isDeleting, currentRoleIndex, delta]);
 
   const handleHireMeClick = () => {
-    const subject = encodeURIComponent('Hire Me');
-    const body = encodeURIComponent("Hello, I'd like to discuss a project with you.");
-    window.location.href = `mailto:dikachinwankwo575@gmail.com?subject=${subject}&body=${body}`;
+    // Universal mobile bypass - creates temporary link and clicks it
+    const link = document.createElement('a');
+    link.href = `mailto:dikachinwankwo575@gmail.com?subject=${encodeURIComponent('Hire Me')}&body=${encodeURIComponent("Hello, I'd like to discuss a project with you.")}`;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -118,26 +118,25 @@ export default function Hero() {
         </div>
 
         <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1.8, duration: 0.8 }}
-  className="flex justify-center gap-6 mb-8"
->
-  <a
-    href="#portfolio"
-    className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95"
-  >
-    Projects
-  </a>
-  
-  <button
-    onClick={handleHireMeClick}
-    className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95"
-  >
-    Hire Me
-  </button>
-</motion.div>
-
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.8 }}
+          className="flex justify-center gap-6 mb-8"
+        >
+          <a
+            href="#portfolio"
+            className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95"
+          >
+            Projects
+          </a>
+          
+          <button
+            onClick={handleHireMeClick}
+            className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95"
+          >
+            Hire Me
+          </button>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

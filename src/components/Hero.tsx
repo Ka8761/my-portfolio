@@ -12,6 +12,10 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [delta, setDelta] = useState(80); // typing speed
 
+  const mailtoLink = "mailto:dikachinwankwo575@gmail.com?subject=Hire%20Me&body=Hello%2C%20I%20would%20like%20to%20have%20you%20onboard%20for%20a%20project.";
+  const gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=dikachinwankwo575@gmail.com&su=Hire%20Me&body=Hello%2C%0A%0AI%20would%20like%20to%20have%20you%20onboard%20for%20a%20project.";
+  const [hireHref, setHireHref] = useState(gmailLink);
+
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
@@ -39,6 +43,10 @@ export default function Hero() {
 
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, currentRoleIndex, delta]);
+
+  useEffect(() => {
+    setHireHref(window.innerWidth <= 1024 ? mailtoLink : gmailLink);
+  }, []);
 
   return (
     <section
@@ -126,11 +134,7 @@ export default function Hero() {
             Projects
           </a>
          <motion.a
-  href={
-    typeof window !== "undefined" && window.innerWidth <= 1024
-      ? "mailto:dikachinwankwo575@gmail.com?subject=Hire%20Me&body=Hello%2C%20I%20would%20like%20to%20have%20you%20onboard%20for%20a%20project."
-      : "https://mail.google.com/mail/?view=cm&fs=1&to=dikachinwankwo575@gmail.com&su=Hire%20Me&body=Hello%2C%0A%0AI%20would%20like%20to%20have%20you%20onboard%20for%20a%20project."
-  }
+  href={hireHref}
   target="_blank"
   rel="noopener noreferrer"
   className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95"

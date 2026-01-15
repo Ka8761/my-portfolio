@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa"; // ← Added icons
+import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 
 const roles = ["Computer Engineer", "UI/UX Developer"];
 
@@ -10,7 +10,7 @@ export default function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [delta, setDelta] = useState(80); // typing speed
+  const [delta, setDelta] = useState(80);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -21,7 +21,7 @@ export default function Hero() {
       // Typing
       timer = setTimeout(() => {
         setDisplayText(currentRole.substring(0, displayText.length + 1));
-        setDelta(80 - Math.random() * 40); // human-like variation
+        setDelta(80 - Math.random() * 40);
       }, delta);
     } else if (isDeleting && displayText.length > 0) {
       // Deleting
@@ -39,6 +39,12 @@ export default function Hero() {
 
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, currentRoleIndex, delta]);
+
+  const handleHireMeClick = () => {
+    const subject = encodeURIComponent('Hire Me');
+    const body = encodeURIComponent("Hello, I'd like to discuss a project with you.");
+    window.location.href = `mailto:dikachinwankwo575@gmail.com?subject=${subject}&body=${body}`;
+  };
 
   return (
     <section
@@ -58,7 +64,6 @@ export default function Hero() {
           </span>
         </motion.h1>
 
-        {/* Centered Tech enthusiast + animated text on mobile */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -112,7 +117,6 @@ export default function Hero() {
           )}
         </div>
 
-        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -126,16 +130,14 @@ export default function Hero() {
             Projects
           </a>
           
-            <a href="mailto:dikachinwankwo575@gmail.com
-        ?subject=Hire%20Me
-        &body=Hello%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20you."
-  className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95"
->
-  Hire Me
-</a>
+          <a
+            onClick={handleHireMeClick}
+            className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95 cursor-pointer"
+          >
+            Hire Me
+          </a>
         </motion.div>
 
-        {/* Social Icons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -125,14 +125,18 @@ export default function Hero() {
           >
             Projects
           </a>
-          <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=dikachinwankwo575@gmail.com&su=Hire%20Me&body=Hello%2C%0A%0AI'd%20like%20to%20discuss%20a%20potential%20project%20or%20collaboration.%20Please%20let%20me%20know%20your%20availability!"
+         <motion.a
+  href={
+    typeof window !== "undefined" && window.innerWidth <= 1024
+      ? "mailto:dikachinwankwo575@gmail.com?subject=Hire%20Me&body=Hello%2C%20I%20would%20like%20to%20have%20you%20onboard%20for%20a%20project."
+      : "https://mail.google.com/mail/?view=cm&fs=1&to=dikachinwankwo575@gmail.com&su=Hire%20Me&body=Hello%2C%0A%0AI%20would%20like%20to%20have%20you%20onboard%20for%20a%20project."
+  }
   target="_blank"
   rel="noopener noreferrer"
   className="px-8 py-3 bg-black text-white font-semibold rounded-full border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300 active:scale-95"
 >
   Hire Me
-</a>
+</motion.a>
         </motion.div>
 
         {/* Social Icons */}

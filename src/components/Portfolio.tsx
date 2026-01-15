@@ -132,7 +132,8 @@ export default function Portfolio() {
                     rel="noopener noreferrer"
                     className="group relative block max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl cursor-pointer"
                   >
-                    <video autoPlay loop muted playsInline preload="metadata" className="w-full">
+                    <video autoPlay loop muted playsInline preload="metadata"
+                       poster="/images/vidpic1.png" className="w-full">
                       <source src="/videos/video1.mp4" type="video/mp4" />
                     </video>
                     
@@ -154,7 +155,9 @@ export default function Portfolio() {
                     A logistics service platform that allows users to fill out shipment details, upload goods for weighing, and choose delivery either to their home address or a designated logistics drop-off point. Built to simplify and track the shipping process from start to finish.
                   </p>
                   <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl">
-                    <video autoPlay loop muted playsInline preload="metadata" className="w-full">
+                    <video autoPlay loop muted playsInline preload="metadata" 
+                    poster="/images/vidpic2.png"
+                    className="w-full">
                       <source src="/videos/video2.mp4" type="video/mp4" />
                     </video>
                   </div>
@@ -195,15 +198,15 @@ export default function Portfolio() {
 
                   <div className="grid md:grid-cols-2 gap-6 mb-8">
                     <motion.div initial={{ x: -40, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
-                      <Image src="/images/AriseHero.png" alt="" width={800} height={600} />
+                      <Image src="/images/AriseHero.png" alt="" priority width={800} height={600} />
                     </motion.div>
                     <motion.div initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
-                      <Image src="/images/Homecrytpo.png" alt="" width={800} height={600} />
+                      <Image src="/images/Homecrytpo.png" alt="" priority width={800} height={600} />
                     </motion.div>
                   </div>
 
                   <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-                    <Image src="/images/Register(Dark).png" alt="" width={1200} height={700} />
+                    <Image src="/images/Register(Dark).png" alt="" priority width={1200} height={700} />
                   </motion.div>
                 </div>
 
@@ -226,6 +229,7 @@ export default function Portfolio() {
                         <Image
                           src={`/images/ai-music-${String(i + 1).padStart(2, "0")}.png`}
                           alt=""
+                          priority
                           width={420}
                           height={840}
                           className="w-full h-auto"

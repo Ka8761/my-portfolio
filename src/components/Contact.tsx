@@ -203,7 +203,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Footer */}
-        <div className="mt-20 text-gray-500 text-sm">
+        <div className="mt-20 pb-7 text-gray-500 text-sm">
           © 2026 Dikachi Nwankwo - All Rights Reserved.
         </div>
       </div>

@@ -37,8 +37,8 @@ export default function Hero() {
   }, [displayText, isDeleting, currentRoleIndex, delta]);
 
   const email = 'dikachinwankwo575@gmail.com';
-  const subject = 'Hire Me - Project Discussion';
-  const body = 'Hello Dikachi,\n\nI\'d like to discuss a project with you.\n\nBest regards';
+  const subject = 'Job Offer - Dikachi Nwankwo';
+ const body = 'Hello Dikachi,\n\nWe need you onboard for a key project.\nPlease advise your availability for a discussion.\n\nBest regards';
 
   return (
     <section

@@ -62,10 +62,9 @@ export default function Portfolio() {
         <h2 className="text-4xl md:text-5xl font-bold mb-5 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
           My Portfolio
         </h2>
-       <p className="text-center text-gray-300 max-w-2xl mx-auto mb-12 text-lg md:text-xl">
-  Here are some of my recent projects and tools I have worked with.
-</p>
-
+        <p className="text-center text-gray-300 max-w-2xl mx-auto mb-12 text-lg md:text-xl">
+          Here are some of my recent projects and tools I have worked with.
+        </p>
 
         {/* Tabs */}
         <div className="flex justify-center gap-4 mb-12 flex-wrap">
@@ -104,7 +103,7 @@ export default function Portfolio() {
                 transition={{ duration: 0.5 }}
                 className="space-y-20"
               >
-                {/* E-commerce Video */}
+                {/* E-commerce Video - RESPONSIVE VERSION */}
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <h3 className="text-2xl md:text-3xl font-semibold text-purple-300">
@@ -132,8 +131,15 @@ export default function Portfolio() {
                     rel="noopener noreferrer"
                     className="group relative block max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl cursor-pointer"
                   >
-                    <video autoPlay loop muted playsInline preload="metadata"
-                       poster="/images/vidpic1.png" className="w-full">
+                    {/* RESPONSIVE VIDEO SOURCE */}
+                    <video 
+                      autoPlay loop muted playsInline preload="metadata"
+                      poster="/images/vidpic1.png" 
+                      className="w-full"
+                    >
+                      {/* Mobile first - show mobile1.mp4 on screens smaller than laptop */}
+                      <source src="/videos/mobile1.mp4" type="video/mp4" media="(max-width: 1024px)" />
+                      {/* Desktop - show original video1.mp4 */}
                       <source src="/videos/video1.mp4" type="video/mp4" />
                     </video>
                     
@@ -156,8 +162,9 @@ export default function Portfolio() {
                   </p>
                   <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl">
                     <video autoPlay loop muted playsInline preload="metadata" 
-                    poster="/images/vidpic2.png"
-                    className="w-full">
+                      poster="/images/vidpic2.png"
+                      className="w-full"
+                    >
                       <source src="/videos/video2.mp4" type="video/mp4" />
                     </video>
                   </div>

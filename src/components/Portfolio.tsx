@@ -152,15 +152,34 @@ export default function Portfolio() {
                   </a>
                 </div>
 
-                {/* Logistics Video - NOW RESPONSIVE WITH MOBILE2 */}
+                {/* Logistics Video - RESPONSIVE WITH LINK + ANIMATED ARROW */}
                 <div className="text-center pt-12">
-                  <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-purple-300">
-                    Logistics Website Demo
-                  </h3>
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <h3 className="text-2xl md:text-3xl font-semibold text-purple-300">
+                      Logistics Website Demo
+                    </h3>
+                    <motion.a
+                      href="https://logistics-cargoextra.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                      className="text-purple-400 hover:text-purple-300"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-7 h-7">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                      </svg>
+                    </motion.a>
+                  </div>
                   <p className="text-gray-300 max-w-3xl mx-auto mb-6 text-lg">
                     A logistics service platform that allows users to fill out shipment details, upload goods for weighing, and choose delivery either to their home address or a designated logistics drop-off point. Built to simplify and track the shipping process from start to finish.
                   </p>
-                  <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl group relative cursor-pointer">
+                  <a
+                    href="https://logistics-cargoextra.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative block max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl cursor-pointer"
+                  >
                     <video 
                       autoPlay loop muted playsInline preload="metadata" 
                       poster="/images/vidpic2.png"
@@ -171,7 +190,14 @@ export default function Portfolio() {
                       {/* Desktop - show original video2.mp4 */}
                       <source src="/videos/video2.mp4" type="video/mp4" />
                     </video>
-                  </div>
+                    
+                    {/* Click to View Overlay */}
+                    <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                      <div className="bg-purple-600 px-10 py-5 rounded-full text-white font-bold text-xl shadow-2xl transform translate-x-0 group-hover:scale-110 transition-transform duration-300">
+                        Click to View Live Site →
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 {/* Tech Stack */}

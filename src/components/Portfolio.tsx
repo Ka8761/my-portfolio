@@ -152,7 +152,7 @@ export default function Portfolio() {
                   </a>
                 </div>
 
-                {/* Logistics Video */}
+                {/* Logistics Video - NOW RESPONSIVE WITH MOBILE2 */}
                 <div className="text-center pt-12">
                   <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-purple-300">
                     Logistics Website Demo
@@ -160,11 +160,15 @@ export default function Portfolio() {
                   <p className="text-gray-300 max-w-3xl mx-auto mb-6 text-lg">
                     A logistics service platform that allows users to fill out shipment details, upload goods for weighing, and choose delivery either to their home address or a designated logistics drop-off point. Built to simplify and track the shipping process from start to finish.
                   </p>
-                  <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl">
-                    <video autoPlay loop muted playsInline preload="metadata" 
+                  <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl group relative cursor-pointer">
+                    <video 
+                      autoPlay loop muted playsInline preload="metadata" 
                       poster="/images/vidpic2.png"
                       className="w-full"
                     >
+                      {/* Mobile - show mobile2.mp4 on screens smaller than laptop */}
+                      <source src="/videos/mobile2.mp4" type="video/mp4" media="(max-width: 1024px)" />
+                      {/* Desktop - show original video2.mp4 */}
                       <source src="/videos/video2.mp4" type="video/mp4" />
                     </video>
                   </div>
